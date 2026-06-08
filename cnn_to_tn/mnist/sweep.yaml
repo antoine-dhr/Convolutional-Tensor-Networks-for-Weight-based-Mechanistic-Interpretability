@@ -1,0 +1,39 @@
+method: grid
+
+metric:
+  name: Top-1 accuracy/validation
+  goal: maximize
+
+parameters:
+  num_stages:
+    values: [4]
+  blocks_per_stage:
+    values: [3]
+  upscale_factor:
+    values: [2]
+  channels_factor:
+    values: [2]
+  start_output_channels:
+    values: [32]
+  kernel_size:
+    values: [3]
+  learning_rate:
+    values: [1e-2]
+  momentum:
+    values: [0.9]
+  optimizer:
+    values: ["sgd"]
+  weight_decay:
+    values: [5e-4]
+  batch_size:
+    values: [128]
+  label_smoothing:
+    values: [0.05]
+  repeat_factor:
+    values: [2]
+  warmup_epochs:
+    values: [2]
+  epochs:
+    values: [150]
+
+program: train_mnist.py
